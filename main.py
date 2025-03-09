@@ -3,20 +3,6 @@ import base64
 import streamlit as st
 from PIL import Image
 from groq import Groq
-from dotenv import load_dotenv
-
-
-# Load environment variables from .env
-# load_dotenv()
-
-# # Get API key from .env file
-# GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-
-# if not GROQ_API_KEY:
-#     raise ValueError("GROQ_API_KEY is not set. Check your .env file.")
-
-# client = Groq(api_key=GROQ_API_KEY)
-
 
 # Get API key from Streamlit Secrets
 GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
@@ -26,10 +12,6 @@ if not GROQ_API_KEY:
     st.stop()
 
 client = Groq(api_key=GROQ_API_KEY)
-
-# st.write("App is running successfully!")
-
-
 
 # Function to encode the image to base64
 def encode_image(image_path):
